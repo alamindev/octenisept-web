@@ -1,0 +1,18 @@
+<div class="{{ class|default('') }}" style="{{ style|default('') }}">
+  <a href="{{ product.url }}" target="_blank">
+    <div class="w-32 h-32 mx-auto">
+      <img src="{{ product.img }}" class="w-full h-full object-contain object-center">
+    </div>
+
+    <div>
+      {{ product.name }}
+    </div>
+
+    <ul>
+      <li>PZN: {{ product.pzn }}</li>
+      <li>Menge: {{ product.packageSize }}</li>
+      <li>Grundpreis: {{ product.basePrice }}</li>
+      <li>Preis: {{ product.price }}</li>
+    </ul>
+  </a>
+</div>

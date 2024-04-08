@@ -1,0 +1,9 @@
+<div class="{{ class|default('') }}" style="{{ style|default('') }}">
+  {% block content %}
+    <div class="h-16 md:h-32 bg-gray-100 text-gray-600 flex justify-center items-center">
+      <span style="font-size: 20px">
+        {{ text|default('placeholder') }}
+      </span>
+    </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,12 @@
+{% extends '@layouts::default.dev.twig' %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content %}
+  <div class="max-w-sm bg-gray-100 p-4 mx-auto my-4">
+    {% include '@components::global/dev.navigation.twig' with {
+      class: 'flex flex-col'
+    } %}
+  </div>
+{% endblock %}

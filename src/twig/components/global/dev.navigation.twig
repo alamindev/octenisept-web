@@ -1,0 +1,9 @@
+<div class="{{ class|default('') }}" style="{{ style|default('') }}">
+  {% for template in templates %}
+    {% if template != 'index' %}
+      <a href="{{ template }}" class="inline-block text-base hover:underline rounded p-2">
+        {{ template }}
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>

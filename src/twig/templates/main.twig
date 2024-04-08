@@ -1,0 +1,639 @@
+{% extends development ? '@layouts::default.dev.twig' : '@layouts::default.prod.twig' %}
+{% set content_class = '' %}
+
+{% block content %}
+   <main class="bg-brand-light">
+      <section class="relative"    x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+        <div
+          class="relative md:min-h-[650px] lg:min-h-screen justify-start max-md:flex max-md:flex-col-reverse"
+        >   
+        <figure class="max-md:absolute top-4 xs:top-8 left-3 md:hidden"  x-bind:class="shown ? 'animate__animated animate__fadeInLeft' : 'opacity-0' ">
+                  <img
+                    class="max-sm:w-[120px] sm:max-md:w-[175px]"
+                    src="{{path.img}}/logo.svg"
+                    alt="logo.svg"
+                  />
+                </figure>
+          <div class="w-full md:max-w-screen-xl mx-auto max-md:bg-brand-light md:relative z-30 px-4">
+            <div class="grid md:grid-cols-12"  x-bind:class="shown ? 'animate__animated animate__fadeInLeftCustom' : 'opacity-0' ">
+              <div
+                class="md:col-span-5 md:space-y-14 lg:space-y-20 md:pt-10 pb-4 md:pb-10"
+              >
+                <figure class="md:block hidden">
+                  <img
+                    class="max-sm:w-[120px] sm:max-md:w-[175px]"
+                    src="{{path.img}}/logo.svg"
+                    alt="logo.svg"
+                  />
+                </figure>
+                <div class="space-y-5 md:space-y-7">
+                  <h2
+                    class="text-dark text-[32px] sm:text-[40px] !leading-[1.1] font-semibold"
+                  >
+                    Sorgenfrei ins <br />
+                    Outdoor-Abenteuer
+                  </h2>
+                  <div class="flex gap-3 items-center">
+                    <a
+                      href="#product"
+                      class="px-3 text-sm sm:text-base py-2.5 font-semibold text-white bg-brand-dark-blue hover:bg-brand-dark-100 transition-all"
+                      >Produkte entdecken</a
+                    >
+                    <a
+                      href="#gewinnspiel"
+                      class="px-3 text-sm sm:text-base py-2.5 font-semibold text-white bg-brand-accent hover:bg-brand-accent-dark transition-all"
+                      >Zum Gewinnspiel</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="max-md:relative pl-16 xs:max-md:pl-28" >
+            <div   x-data="{parallaxOffset: 0}" x-on:scroll.window="parallaxOffset = window.scrollY * 0.3" x-bind:style="{ transform: `translateY(${parallaxOffset}px)`}"
+              class="full sm:relative left-0 md:left-auto md:absolute md:inset-y-0 md:right-0 md:w-1/2 w-full pb-10 md:pb-0"
+            >
+              <div x-bind:class="shown ? 'animate__animated animate__fadeInRight' : 'opacity-0' "> 
+                <img
+                  class="w-full h-[380px] sm:h-full object-cover object-left"
+                  src="{{path.img}}/bannner.png"
+                  alt="bannner.png"
+                />
+              </div>
+            </div>
+            <div class="absolute z-20 bottom-0 left-0 right-0"  x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' ">
+              <picture>
+                <source
+                  media="(min-width:480px)"
+                  srcset="{{path.img}}/divider.svg"
+                />
+                <img
+                  src="{{path.img}}/divider-mobile.svg"
+                  alt="divider"
+                  class="w-full h-[120px] xs:h-[150px] sm:h-[280px] object-cover object-top"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section  x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true" class="px-4 pb-12 md:py-20 xl:py-24 overflow-hidden bg-brand-light relative">
+        <div class="max-w-[910px] mx-auto space-y-4"  x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' ">
+          <h3 class="text-black text-xl md:text-2xl">
+            <strong class="font-semibold">Aktiv und geschützt:</strong> <br />
+            Erleben Sie den Frühling voller Freude mit octenisept<sup>®</sup> an
+            Ihrer Seite!
+          </h3>
+          <p class="text-black text-sm md:text-base">
+            Lust auf Frühling und Outdoor-Abenteuer? Kleine Verletzungen gehören
+            zum Spiel, besonders wenn Sie sich im Freien bewegen oder mit Ihren
+            Kindern die Natur erkunden. Aber keine Sorge! Mit den Produkten von
+            octenisept<sup>®</sup> haben Sie den perfekten Begleiter für jedes
+            Abenteuer – egal ob Schürf- und Schnittwunden oder Sonnenbrand. Also
+            nichts wie raus in die Natur und erleben Sie unbeschwerte Momente –
+            mit octenisept<sup>®</sup> an Ihrer Seite!
+          </p>
+        </div>
+      </section>
+      <section class="pb-20 sm:pb-16" id="product"  x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+        <div class="relative py-10 md:py-14 px-4 overflow-x-clip" x-bind:class="shown ? 'animate__animated animate__fadeInRight' : 'opacity-0' ">
+          <picture>
+            <source
+              media="(min-width:992px)"
+              srcset="{{path.img}}/shape-left.svg"
+            />
+            <img
+              class="absolute object-cover object-left inset-0 md:left-8 lg:left-24 xl:left-40 w-full h-full"
+              src="{{path.img}}/shape-left-mobile.svg"
+              alt="shape-left.svg"
+            />
+          </picture>
+          <div class="max-w-[885px] mx-auto relative">
+            <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
+              <div class="sm:col-span-3 flex justify-center items-center">
+                <figure class="max-sm:max-w-[120px]">
+                  <img src="{{path.img}}/product-1.png" alt="/product-1.png" />
+                </figure>
+              </div>
+              <div class="sm:col-span-5 space-y-5">
+                <div class="space-y-2">
+                  <h2 class="font-semibold text-base sm:text-lg text-black">
+                    octenisept<sup>®</sup> Wund-Desinfektion<sup>*</sup>
+                  </h2>
+                  <p class="text-black text-sm sm:text-base">
+                    octenisept<sup>®</sup> Wund-Desinfektion ist ein
+                    Antiseptikum zur wiederholten, zeitlich begrenzten,
+                    unterstützenden antiseptischen Wundbehandlung. Zur
+                    Desinfektion und Nachreinigung von Schnitt-, Kratz- und
+                    Schwürfwunden sowie offenen Blasen.
+                  </p>
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-1">
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Desinfektion akuter und chronischer Wunden
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Schützt aktiv vor einer Infektion
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Schneller Wirkeintritt
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">Farblos</p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Schmerzfrei anzuwenden
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Für alle Altersklassen
+                    </p>
+                  </li>
+                </ul>
+                <a
+                  href="/product/octenisept-wund-desinfektion-loesung.278109.html"
+                  target="_blank"
+                  class="inline-block text-sm sm:text-base text-white px-3 py-3 font-semibold bg-brand-dark-blue hover:bg-brand-dark-100 transition-all"
+                  >Zum Produkt</a
+                >
+                <p>
+                  <sup>*</sup>octenisept<sup>®</sup> Wund-Desinfektion -
+                  Anwendungsgebiete: Antiseptikum zur wiederholten, zeitlich
+                  begrenzten unterstützenden antiseptischen Wundbehandlung.
+                  <br />
+                  Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage
+                  und fragen Sie Ihre Ärztin, Ihren Arzt oder in Ihrer Apotheke.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pb-6 md:pb-12"  x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+        <div class="relative pb-14 pt-6 md:py-20 px-4 overflow-x-clip" x-bind:class="shown ? 'animate__animated animate__fadeInLeft' : 'opacity-0' ">
+          <picture>
+            <source
+              media="(min-width:992px)"
+              srcset="{{path.img}}/shape-right.svg"
+            />
+            <img
+              class="absolute object-cover object-left inset-0 md:-left-8 lg:-left-24 xl:-left-40 w-full h-full"
+              src="{{path.img}}/shape-right-mobile.svg"
+              alt="shape-right.svg"
+            />
+          </picture>
+          <div class="max-w-[885px] mx-auto relative">
+            <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
+              <div class="sm:col-span-3 flex justify-center items-center">
+                <figure class="max-sm:max-w-[320px]">
+                  <img src="{{path.img}}/product-2.png" alt="/product-2.png" />
+                </figure>
+              </div>
+              <div class="sm:col-span-5 space-y-5">
+                <div class="space-y-2">
+                  <h2 class="font-semibold text-base sm:text-lg text-black">
+                    octenisept<sup>®</sup> Gel
+                  </h2>
+                  <p class="text-black text-sm sm:text-base">
+                    octenisept<sup>®</sup> Gel wird bei akuten Hautverletzungen
+                    wie Abschürfungen, Schnittverletzungen und leichten
+                    Verbrennungen. Außerdem kann es bei Sonnenbrand und Juckreiz
+                    angewendet werden. Die besondere Formel von octenisept<sup
+                      >®</sup
+                    >
+                    Gel versorgt die Wunde optimal mit Feuchtigkeit und bildet
+                    eine Schutzschicht vor Bakterien.
+                  </p>
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-1">
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Schnellere Wundheilung
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Schützt die Wunde vor Keimen
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      optimale Versorgung mit Feuchtigkeit
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Kühlender Effekt
+                    </p>
+                  </li>
+                  <li class="flex gap-2 items-start">
+                    <figure class="shrink-0 mt-1 sm:mt-1.5">
+                      <img src="{{path.img}}/shape-small.svg" alt="shape-small" />
+                    </figure>
+                    <p class="text-black text-base sm:text-base">
+                      Reduziert Narbenbildung
+                    </p>
+                  </li>
+                </ul>
+                <a
+                  href="/product/octenisept-wundgel.272497.html"
+                  target="_blank"
+                  class="inline-block text-sm sm:text-base text-white px-3 py-3 font-semibold bg-brand-dark-blue hover:bg-brand-dark-100 transition-all"
+                  >Zum Produkt</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-4 relative pb-10 pt-16 md:py-16"  x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+        <figure class="absolute -left-20 lg:left-0 top-0 md:block hidden">
+          <img class="max-lg:w-40" src="{{path.img}}/cap-1.svg" alt="cap-1.svg" />
+        </figure>
+        <figure class="absolute right-0 max-md:-top-10 md:bottom-0">
+          <img
+            class="max-md:w-24 md:max-lg:w-28"
+            src="{{path.img}}/cap-2.svg"
+            alt="cap-2.svg"
+          />
+        </figure>
+        <div class="max-w-[885px] mx-auto relative space-y-4" x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' ">
+          <h3 class="text-xl md:text-2xl text-black pr-8">
+            <strong class="font-semibold"
+              >Erste Hilfe bei kleinen Wunden</strong
+            >
+            <br />
+            Erleben Sie den Frühling voller Freude mit octenisept<sup>®</sup> an
+            Ihrer Seite!
+          </h3>
+          <p class="text-base text-black">
+            Kleine Wunden gehören zum Großwerden einfach dazu – Kinder sind
+            aktiv, wollen was erleben und überschätzen hier und da noch ihre
+            eigenen körperlichen Fähigkeiten. Ob kleiner Schnitt beim Basteln
+            oder Schürfwunde unterwegs beim Wandern, oft ist der Schreck größer
+            als die Verletzung selbst. Bei kleinen Wunden ist oft kein
+            Arztbesuch nötig und Sie können die Verletzung selbst versorgen.
+            Bleiben Sie ruhig, trösten Sie ihr Kind und sehen Sie sich die Wunde
+            erst einmal in Ruhe an. <br />
+            Für einen solchen Fall ist es ratsam die wichtigsten Dinge für die
+            Wundversorgung parat zu haben. Dazu gehören Desinfektionsmittel,
+            Wundgele sowie eine Auswahl an Pflastern, Verbandsmaterial und
+            sterile Kompressen.
+          </p>
+        </div>
+      </section>
+      <section class="px-4 relative pb-16 md:pb-20">
+        <figure class="absolute -left-20 lg:left-0 top-0 md:block hidden">
+          <img class="max-lg:w-40" src="{{path.img}}/cap-3.svg" alt="cap-1.svg" />
+        </figure>
+        <figure
+          class="absolute right-0 max-lg:bottom-8 lg:top-1/2 lg:-translate-y-1/2"
+        >
+          <img class="max-md:w-28" src="{{path.img}}/cap-4.svg" alt="cap-2.svg" />
+        </figure>
+        <div class="max-w-[885px] mx-auto relative space-y-5" >
+          <h3 class="hidden sm:block text-lg text-black pr-8 font-semibold">
+            Die 4 Schritte der Wundversorgung
+          </h3>
+          <div class="grid gap-6">
+            <div class="w-full" x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+              <div x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' " class="flex sm:gap-3 bg-white flex-col sm:flex-row">
+                <figure class="shrink-0 -mt-0.5 -ml-2">
+                  <img
+                    class="max-sm:w-[110px]"
+                    src="{{path.img}}/icon-1.svg"
+                    alt="icon-1"
+                  />
+                </figure>
+                <div class="space-y-2 pt-6 pb-6 pr-4 max-sm:pl-4">
+                  <h4 class="text-block font-semibold text-sm sm:text-base">
+                    Wunde Reinigen
+                  </h4>
+                  <p class="sm:text-base text-sm text-black">
+                    Wenn die oberste Hautschicht stark verschmutzt ist, spülen Sie
+                    die Wunde vorsichtig mit lauwarmem Wasser (Trinkwasser) aus.
+                    <br />
+                    Berühren Sie die Wunde dabei möglichst wenig. Sollten sich
+                    Splitter oder Steinchen oberflächlich in der Wunde befinden,
+                    entfernen Sie diese vorsichtig mit einer Pinzette. Bei tief in
+                    der Wunde steckenden Fremdkörpern kontaktieren Sie einen Arzt
+                    und entfernen diese besser nicht selbst.
+                  </p>
+                </div>
+              </div>
+            </div>
+              <div class="w-full" x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+              <div x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' "  class="flex sm:gap-3 bg-white flex-col sm:flex-row">
+                <figure class="shrink-0 -mt-0.5 -ml-2">
+                  <img
+                    class="max-sm:w-[110px]"
+                    src="{{path.img}}/icon-2.svg"
+                    alt="icon-2"
+                  />
+                </figure>
+                <div class="space-y-2 pt-6 pb-6 pr-4 max-sm:pl-4">
+                  <h4 class="text-block font-semibold text-sm sm:text-base">
+                    Wunde desinfizieren und behandeln
+                  </h4>
+                  <p class="sm:text-base text-sm text-black">
+                    Desinfizieren Sie die Wunde direkt nach der Reinigung mit
+                    octenisept<sup>®</sup> Wund-Desinfektion. Das
+                    Wund-Desinfektionsspray verhindert das Eindringen von Keimen
+                    und schützt somit die Wunde vor Entzündungen. Bei Wunden wie
+                    Abschürfungen und Schnittverletzungen kann zudem
+                    octenisept<sup>®</sup>
+                    Gel auf die Wunde gegeben werden. Dadurch wird die Wunde
+                    optimal mit der für die Heilung benötigten Feuchtigkeit
+                    versorgt und zusätzlich vor dem Eindringen von Bakterien
+                    bewahrt.
+                  </p>
+                </div>
+              </div>
+            </div>
+              <div class="w-full" x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+              <div x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' "  class="flex sm:gap-3 bg-white flex-col sm:flex-row">
+                <figure class="shrink-0 -mt-0.5 -ml-2">
+                  <img
+                    class="max-sm:w-[110px]"
+                    src="{{path.img}}/icon-3.svg"
+                    alt="icon-3"
+                  />
+                </figure>
+                <div class="space-y-2 pt-6 pb-6 pr-4 max-sm:pl-4">
+                  <h4 class="text-block font-semibold text-sm sm:text-base">
+                    Wunde abdecken
+                  </h4>
+                  <p class="sm:text-base text-sm text-black">
+                    Bei kleineren Verletzungen reicht meist ein einfaches
+                    Pflaster. Hier gibt es auch eine Auswahl verschiedener
+                    Pflaster mit lustigen Motiven speziell für Kinder, um die
+                    Kinder direkt ein wenig aufzuheitern.
+                  </p>
+                </div>
+              </div>
+            </div>
+              <div class="w-full" x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+              <div x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' "  class="flex sm:gap-3 bg-white flex-col sm:flex-row">
+                <figure class="shrink-0 -mt-0.5 -ml-2">
+                  <img
+                    class="max-sm:w-[110px]"
+                    src="{{path.img}}/icon-4.svg"
+                    alt="icon-4"
+                  />
+                </figure>
+                <div class="space-y-2 pt-6 pb-6 pr-4 max-sm:pl-4">
+                  <h4 class="text-block font-semibold text-sm sm:text-base">
+                    Wunde beobachten
+                  </h4>
+                  <p class="sm:text-base text-sm text-black">
+                    Kontrollieren Sie die Wunde regelmäßig, um mögliche
+                    Infektionen zu verhindern und diese schnell zu erkennen.
+                    Beobachten Sie, ob die Wunde gut heilt, oder sich die Haut
+                    darum eventuell rötet oder gar anschwillt. Sollten Sie
+                    derartige Veränderungen feststellen, kontaktieren Sie einen
+                    Arzt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="w-full" x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true">
+            <div class="space-y-4 pt-4" x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' ">
+              <h2 class="text-xl sm:text-lg font-semibold text-black">
+                Konsultieren Sie in folgenden Fälle unbedingt einen Arzt:
+              </h2>
+              <ul class="list-disc gap-0.5 grid pl-5 pr-10">
+                <li class="text-sm sm:text-base text-black">
+                  Die Wunde ist stark verschmutzt
+                </li>
+                <li class="text-sm sm:text-base text-black">
+                  Die Wunde blutet sehr stark
+                </li>
+                <li class="text-sm sm:text-base text-black">
+                  Die Wunde hat sich entzündet
+                </li>
+                <li class="text-sm sm:text-base text-black">
+                  Die Wunde ist großflächig
+                </li>
+                <li class="text-sm sm:text-base text-black">
+                  Die Verletzung befindet sich am Kopf <br />
+                  (Es sollte eine Gehirnerschütterung ausgeschlossen werden)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section  x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true"
+        class="px-4 pt-16 lg:pt-20 pb-20 sm:pb-32 relative bg-white"
+        id="gewinnspiel"
+      >
+        <div class="absolute z-20 bottom-0 left-0 right-0">
+          <picture>
+            <source
+              media="(min-width:480px)"
+              srcset="{{path.img}}/shape-bottom.svg"
+            />
+            <img
+              src="{{path.img}}/shape-bottom-mobile.svg"
+              alt="divider"
+              class="w-full h-[60px] sm:h-[180px] md:h-[240px] object-cover object-top"
+            />
+          </picture>
+        </div>
+        <div class="max-w-[885px] mx-auto">
+          <div
+            class="flex flex-col-reverse max-sm:items-center sm:flex-row sm:justify-between gap-4"
+          >
+            <div class="space-y-4" x-bind:class="shown ? 'animate__animated animate__fadeInLeft' : 'opacity-0' ">
+              <h2 class="font-semibold text-2xl text-dark-100">
+                Gewinnen Sie tolle Preise für Ihr nächstes Abenteuer
+              </h2>
+              <p class="text-dark-100 text-base">
+                Unter allen Teilnehmer:innen des Gewinnspiels verlosen wir
+                insgesamt 8 tolle Gewinne:
+              </p>
+              <ul>
+                <li class="flex gap-1.5">
+                  <p class="font-semibold shrink-0 text-base text-dark-100">
+                    1x
+                  </p>
+                  <p class="text-base text-dark-100">DÖRR Rucksack Outdoor</p>
+                </li>
+                <li class="flex gap-1.5">
+                  <p class="font-semibold shrink-0 text-base text-dark-100">
+                    1x
+                  </p>
+                  <p class="text-base text-dark-100">DÖRR Rucksack Outdoor</p>
+                </li>
+                <li class="flex gap-1.5">
+                  <p class="font-semibold shrink-0 text-base text-dark-100">
+                    2x
+                  </p>
+                  <p class="text-base text-dark-100">
+                    Leatherman WINGMAN Multitool
+                  </p>
+                </li>
+                <li class="flex gap-1.5">
+                  <p class="font-semibold shrink-0 text-base text-dark-100">
+                    5x
+                  </p>
+                  <p class="text-base text-dark-100">
+                    LifeStraw Trinkflasche 1l
+                  </p>
+                </li>
+              </ul>
+              <p class="text-base text-dark-100">
+                Aktionszeitraum:  27.04. – 30.06.2024
+              </p>
+            </div>
+            <div class="w-[268px] shrink-0" x-bind:class="shown ? 'animate__animated animate__fadeInRight' : 'opacity-0' ">
+              <figure>
+                <img src="{{path.img}}/product-3.png" alt="product-3" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-4 pt-1 pb-8 sm:pb-12 lg:pb-16 bg-[#FDFAF7] sm:-mt-10">
+        <div class="max-w-[885px] mx-auto space-y-8 sm:space-y-12">
+          <div
+            x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true"
+          >
+            <div
+              id="gewinnspiel"
+              x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' "
+            >
+              <div
+                class="flex min-h-[400px] w-full items-center justify-center bg-white sm:min-h-[550px]"
+              >
+                <iframe
+                  class="h-[600px] w-full"
+                  src="https://www.netigate.se/a/s.aspx?s=1210015X426918580X67317"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <div
+            x-data="{ shown: false }"
+            x-intersect.threshold.10="shown = true"
+          >
+            <div
+              class="space-y-6"
+              x-bind:class="shown ? 'animate__animated animate__fadeInUp' : 'opacity-0' "
+            >
+              <div class="">
+                <h3 class="text-dark-100 text-xs font-bold">
+                  Teilnahmebedingungen
+                </h3>
+                <p class="text-dark-100 text-xs">
+                  Veranstalter ist Alliance Healthcare Deutschland GmbH,
+                  Solmsstraße 73, 60486 Frankfurt.<br />
+                  Die Teilnahme ist online unter 
+
+                  <a
+                    target="_blank"
+                    href="https://apotheke.com/"
+                    class="underline"
+                    > www.apotheke.com </a
+                  >
+                   und per Post möglich. So einfach geht die Teilnahme am
+                  Gewinnspiel – online Eingabemaske ausfüllen und teilnehmen
+                  oder Postkarte senden an: Alliance Healthcare Deutschland
+                  GmbH, Despina Kalaitzidou, Stichwort „octenisept“, Pragstraße
+                  154, 70376 Stuttgart.<br />
+                  <br />
+                  Nur vollständig ausgefüllte Teilnahmeformulare
+                  (Pflichtangaben) und bei Zusendung per Post ausreichend
+                  frankierte Einsendungen nehmen an der Verlosung teil.
+                  Einsendeschluss bei Alliance Healthcare Deutschland GmbH, ist
+                  der 30.06.2024. Es gilt das Datum des Poststempels bzw. das
+                  Datum der Online-Teilnahme. Der Rechtsweg ist ausgeschlossen.
+                  Die Teilnahme ist nur unmittelbar möglich; das heißt, eine
+                  Teilnahme über Dritte – insbesondere sog. Gewinnspielclubs
+                  oder Gewinnspielagenturen – ist ausgeschlossen. Pro Person ist
+                  nur eine Teilnahme möglich. Minderjährige und Mitarbeiter der
+                  Alliance Healthcare Deutschland GmbH dürfen nicht teilnehmen.
+                  Die Teilnahme an dem Gewinnspiel ist kostenlos und nicht an
+                  einem Produktkauf gebunden. Die Barablöse der Gewinne ist
+                  nicht möglich. Die Gewinner werden aus allen Teilnehmern
+                  ausgelost und schriftlich benachrichtigt.
+                </p>
+              </div>
+              <div class="">
+                <h3 class="text-dark-100 text-xs font-bold">
+                  Datenschutzhinweis
+                </h3>
+                <p class="text-dark-100 text-xs">
+                  Um an dem Gewinnspiel teilnehmen zu können, sind
+                  personenbezogene Daten, wie Name und Adresse anzugeben. Die
+                  für Teilnahme am Gewinnspiel erforderlichen Daten sind
+                  entsprechend als Pflichtfelder gekennzeichnet. Die erhobenen
+                  personenbezogenen Daten werden ausschließlich zur Durchführung
+                  des Gewinnspiels – zur Erfüllung eines Vertrages gemäß Art. 6
+                  Nr. 1 lit. b) DSGVO - verwendet. Weitere Informationen auf
+                  Grund dieser Datenerhebung, z.B. Informationen über Ihre
+                  Betroffenenrechte, sind auf dieser Website in der
+
+                  <a href="/datenschutz-betreiber" class="underline"
+                    >Datenschutzerklärung</a
+                  >
+                  einsehbar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}

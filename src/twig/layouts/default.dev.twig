@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+      html, body {
+        font-family: 'Poppins', sans-serif !important;
+      }
+    </style>
+  {% endblock %}
+
+  {% block body %}
+    <body class="debug-screens">
+      {% block header %}
+        {% embed '@components::global/dev.placeholder.twig' with { text: 'HEADER' } %}
+          {% block content %}
+            {{ parent() }}
+
+            {% if templates|length > 2 %}
+              {% include '@components::global/dev.navigation.twig' with {
+                class: 'flex justify-center bg-black text-white'
+              } %}
+            {% endif %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+
+      <div class="{{ content_class|default('') }}" style="{{ content_style|default('') }}">
+        {% block content %}{% endblock %}
+      </div>
+
+      {% block footer %}
+        {% include '@components::global/dev.placeholder.twig' with { text: 'FOOTER' } %}
+      {% endblock %}
+
+      <script src="main.js"></script>
+    </body>
+  {% endblock %}
+</html>

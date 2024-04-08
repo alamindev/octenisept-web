@@ -1,0 +1,15 @@
+/**
+ * responsive youtube/vimeo video helper
+ *
+ * <div class="responsive-video">
+ *   <iframe>
+ * </div>
+ */
+.responsive-video {
+  @apply relative pt-0 w-full h-0 overflow-hidden;
+  padding-bottom: 56.25%; /* Default for 16:9 video ratio */
+}
+
+.responsive-video iframe {
+  @apply absolute top-0 left-0 w-full h-full;
+}

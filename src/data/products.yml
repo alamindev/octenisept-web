@@ -1,0 +1,15 @@
+products:
+  - name: gesund leben Diät-Suppe Tomate-Mozzarella
+    price: ''
+    packageSize: 5X50g
+    basePrice: 3,00 € / 100 g
+    pzn: 529810
+    img: https://www.gesundleben-apotheken.de/documents/products/Listenansicht/12389687-300dpi.jpg
+    url: https://www.gesundleben-apotheken.de/product/gesund-leben-diaet-suppe-tomate-mozzarella.529808.html
+  - name: gesund leben Vitamin C (160 mg) Brausetabletten Röhrchen
+    price: 1,99 €
+    packageSize: 20 St
+    basePrice: 0,05 € / 1 St
+    pzn: 204797
+    img: https://www.gesundleben-apotheken.de/documents/products/Listenansicht/04984915-300dpi.jpg
+    url: https://www.gesundleben-apotheken.de/product/gesund-leben-vitamin-c-160-mg-brausetabletten-roehrchen.204797.html
